@@ -1,26 +1,127 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 1. THE THEME BLOCK: This is the critical part for Tailwind v4 */
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border)); /* This allows 'border-border' to work */
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Custom Shadow variables for v4 */
+  --shadow-soft: 0 4px 20px -4px hsl(207 50% 19% / 0.15);
+  --shadow-card: 0 8px 30px -8px hsl(207 50% 19% / 0.12);
+  --shadow-elevated: 0 20px 50px -12px hsl(207 50% 19% / 0.2);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* 2. THE BASE VARIABLES: Keep these as raw HSL values */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 207 50% 19%;
+    --card: 0 0% 100%;
+    --card-foreground: 207 50% 19%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 207 50% 19%;
+    --primary: 207 50% 19%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 207 32% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 207 30% 40%;
+    --accent: 207 32% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 207 50% 19%;
+    --radius: 0.75rem;
+
+    --gradient-start: 207 50% 19%;
+    --gradient-end: 207 32% 46%;
+  }
+
+  .dark {
+    --background: 207 50% 10%;
+    --foreground: 0 0% 98%;
+    --card: 207 45% 14%;
+    --card-foreground: 0 0% 98%;
+    --popover: 207 45% 14%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 207 50% 19%;
+    --secondary: 207 32% 46%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 207 40% 20%;
+    --muted-foreground: 210 20% 70%;
+    --accent: 207 32% 46%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 207 40% 25%;
+    --input: 207 40% 25%;
+    --ring: 207 32% 46%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border; /* This now works because color-border is in @theme */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(12px);
+  }
 }
