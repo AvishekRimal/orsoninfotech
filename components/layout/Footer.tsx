@@ -1,4 +1,5 @@
 import { Code2, Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -11,10 +12,17 @@ const Footer = () => {
           {/* Brand & Mission */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center transition-colors group-hover:bg-primary-foreground/20">
+              {/* <div className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center transition-colors group-hover:bg-primary-foreground/20">
                 <Code2 className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">TechFlow</span>
+              </div> */}
+              <Image
+                src="/logo.png"
+                alt="Orson InfoTech Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+              <span className="text-xl font-bold">Orson InfoTech</span>
             </Link>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
               Building innovative software solutions that transform businesses and drive digital success.
@@ -63,19 +71,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-primary-foreground/70 text-sm">
                 <Mail className="w-4 h-4 flex-shrink-0 text-secondary" />
-                <a href="mailto:hello@techflow.com" className="hover:text-primary-foreground transition-colors">
-                  hello@techflow.com
+                <a href="mailto:infotech.orson@gmail.com" className="hover:text-primary-foreground transition-colors">
+                  infotech.orson@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3 text-primary-foreground/70 text-sm">
                 <Phone className="w-4 h-4 flex-shrink-0 text-secondary" />
-                <a href="tel:+15551234567" className="hover:text-primary-foreground transition-colors">
-                  +1 (555) 123-4567
+                <a href="tel:9802111635" className="hover:text-primary-foreground transition-colors">
+                  +977 9802111635
                 </a>
               </li>
               <li className="flex items-start gap-3 text-primary-foreground/70 text-sm">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5 text-secondary" />
-                <span>123 Tech Street, Silicon Valley, CA 94025</span>
+                <span>Shantinagar-31, Kathmandu, Nepal</span>
               </li>
             </ul>
           </div>
@@ -84,7 +92,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} TechFlow. All rights reserved.
+            © {new Date().getFullYear()} ORSON INFO TECH. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link 

@@ -70,7 +70,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-muted-foreground"
               >
-                Founded in 2016, TechFlow has been at the forefront of software development,
+                Founded in 2016, Orson InfoTech has been at the forefront of software development,
                 helping businesses transform their ideas into powerful digital solutions.
               </motion.p>
             </div>

@@ -14,19 +14,19 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "hello@techflow.com",
-    link: "mailto:hello@techflow.com",
+    value: "infotech.orson@gmail.com",
+    link: "mailto:infotech.orson@gmail.com",
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+1 (555) 123-4567",
-    link: "tel:+15551234567",
+    value: "9802111635",
+    link: "tel:9802111635",
   },
   {
     icon: MapPin,
     title: "Office",
-    value: "123 Tech Street, Silicon Valley, CA 94025",
+    value: "Shantinagar-31, Kathmandu, Nepal",
     link: "#",
   },
 ];
@@ -117,7 +117,7 @@ export default function ContactPage() {
                       <Input
                         id="name"
                         name="name"
-                        placeholder="John Doe"
+                        placeholder="Enter your full name"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -132,7 +132,7 @@ export default function ContactPage() {
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder="Enter your email address"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -169,7 +169,7 @@ export default function ContactPage() {
                   </div>
                   <Button
                     type="submit"
-                    variant="default" // or your specific gradient variant
+                    variant="default" 
                     size="lg"
                     className="w-full"
                     disabled={isSubmitting}
@@ -224,7 +224,6 @@ export default function ContactPage() {
                   ))}
                 </div>
 
-                {/* Map Placeholder */}
                 <div className="rounded-2xl overflow-hidden border border-border h-64 bg-muted flex items-center justify-center">
                   <div className="text-center text-muted-foreground">
                     <MapPin className="w-12 h-12 mx-auto mb-3 opacity-50" />

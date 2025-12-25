@@ -8,8 +8,8 @@ import CTA from "@/components/sections/CTA";
 
 // Replace Helmet with this Metadata object
 export const metadata: Metadata = {
-  title: "TechFlow - Innovative Software Development Solutions",
-  description: "TechFlow delivers cutting-edge software development solutions. Web apps, mobile apps, cloud solutions, and AI services to transform your business.",
+  title: "Orson InfoTech - Innovative Software Solutions",
+  description: "Orson InfoTech delivers cutting-edge software development solutions. Web apps, mobile apps, cloud solutions to transform your business.",
 };
 
 export default function HomePage() {
