@@ -1,14 +1,9 @@
-"use client"; // Required for framer-motion and interactivity
+"use client";
 
 import { motion } from "framer-motion";
-import { Users, Target, Lightbulb, Award } from "lucide-react";
-import Image from "next/image"; // Use Next.js optimized images
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { Users, Target, Lightbulb, Award, Sparkles } from "lucide-react";
+import Image from "next/image";
 import CTA from "@/components/sections/CTA";
-
-// Note: Metadata cannot be in a "use client" file. 
-// To keep SEO, see the note below this code block.
 
 const values = [
   {
@@ -45,67 +40,68 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background">
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <motion.span
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-sm font-semibold text-secondary uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary uppercase tracking-wider mb-3"
               >
+                <Sparkles className="w-3.5 h-3.5" />
                 About Us
               </motion.span>
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-2 mb-4 text-foreground leading-tight"
               >
                 Building the Future of{" "}
                 <span className="gradient-text">Digital Innovation</span>
               </motion.h1>
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-lg text-muted-foreground"
+                className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto"
               >
                 Founded in 2016, Orson InfoTech has been at the forefront of software development,
-                helping businesses transform their ideas into powerful digital solutions.
+                helping businesses transform their ideas into powerful, scalable digital solutions.
               </motion.p>
             </div>
           </div>
         </section>
 
         {/* Values */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 bg-muted/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-4xl font-bold"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground"
               >
                 Our Core Values
               </motion.h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 25 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="bg-card rounded-2xl p-8 border border-border text-center hover:shadow-elevated transition-all duration-300"
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ delay: index * 0.08 }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  className="bg-card rounded-xl sm:rounded-2xl p-6 border border-border text-center hover:shadow-elevated hover:border-secondary/40 transition-all duration-300 flex flex-col items-center"
                 >
-                  <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-6">
-                    <value.icon className="w-7 h-7 text-primary-foreground" />
+                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 shadow-sm">
+                    <value.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground text-sm">{value.description}</p>
+                  <h3 className="text-lg font-bold mb-2 text-foreground">{value.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{value.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -113,49 +109,49 @@ export default function AboutPage() {
         </section>
 
         {/* Team */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 lg:py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
               <motion.span
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-sm font-semibold text-secondary uppercase tracking-wider"
+                className="text-xs sm:text-sm font-semibold text-secondary uppercase tracking-wider"
               >
                 Our Team
               </motion.span>
               <motion.h2
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-3xl md:text-4xl font-bold mt-4"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-foreground"
               >
                 Meet the Experts
               </motion.h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {team.map((member, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 25 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="group text-center"
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ delay: index * 0.08 }}
+                  whileHover={{ y: -5 }}
+                  className="group text-center bg-card p-4 rounded-xl sm:rounded-2xl border border-border/80 hover:border-secondary/40 hover:shadow-card transition-all"
                 >
-                  <div className="relative rounded-2xl overflow-hidden mb-6 aspect-square">
+                  <div className="relative rounded-lg sm:rounded-xl overflow-hidden mb-3 aspect-square bg-muted">
                     <Image
                       src={member.image}
                       alt={member.name}
-                      fill // Use fill for dynamic images in aspect-square containers
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <h3 className="text-lg font-semibold">{member.name}</h3>
-                  <p className="text-muted-foreground text-sm">{member.role}</p>
+                  <h3 className="text-sm sm:text-base font-bold text-foreground">{member.name}</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">{member.role}</p>
                 </motion.div>
               ))}
             </div>
@@ -166,4 +162,4 @@ export default function AboutPage() {
       </main>
     </div>
   );
-};
+}

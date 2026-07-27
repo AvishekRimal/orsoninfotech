@@ -7,47 +7,44 @@ import Link from "next/link";
 
 const CTA = () => {
   return (
-    <section className="py-24">
-      {/* Added mx-auto and px-4 to center the container correctly */}
-      <div className="container mx-auto px-4">
+    <section className="py-10 sm:py-14 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-3xl gradient-primary p-12 md:p-16 overflow-hidden"
+          viewport={{ once: true, margin: "-30px" }}
+          className="relative rounded-2xl sm:rounded-3xl gradient-primary p-6 sm:p-10 md:p-14 overflow-hidden shadow-elevated"
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-foreground rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-primary-foreground rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 left-0 w-60 h-60 bg-primary-foreground rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
           </div>
 
           <div className="relative z-10 max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary-foreground mb-3 sm:mb-4 tracking-tight leading-snug">
               Ready to Start Your Next Project?
             </h2>
-            <p className="text-primary-foreground/80 text-lg mb-10">
-              Let&apos;s collaborate to bring your vision to life. Our team is ready to help you build something amazing.
+            <p className="text-primary-foreground/90 text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto">
+              Let&apos;s collaborate to bring your vision to life. Our engineering team is ready to deliver world-class solutions.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              {/* Added asChild to properly wrap the Next.js Link */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <Button
                 asChild
-                size="xl"
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 group"
+                size="lg"
+                className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 group shadow-md"
               >
                 <Link href="/contact">
                   Get in Touch
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
 
               <Button
                 asChild
                 variant="outline"
-                size="xl"
-                /* Added bg-transparent to override the default white background */
-                className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                size="lg"
+                className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
               >
                 <Link href="/projects">
                   Explore Our Work
