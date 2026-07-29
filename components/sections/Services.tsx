@@ -66,7 +66,7 @@ const itemVariants = {
 
 const Services = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+    <section className="py-6 sm:py-8 lg:py-10 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
